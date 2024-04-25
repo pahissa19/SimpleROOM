@@ -16,13 +16,13 @@ fun MainScreen (viewmodel: MainViewModel){
     Column (modifier = Modifier.fillMaxWidth()){
 
         TextField(value = state.name, onValueChange = {viewmodel.onNameChanged(it)})
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { viewmodel.saveUser()}) {
             Text(text = "Guardar")
         }
 
         LazyColumn (modifier = Modifier.fillMaxWidth()){
             items(state.names){
-                Text(text = it)
+                Text(text = it.name)
             }
         }
     }
