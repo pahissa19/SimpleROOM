@@ -21,7 +21,7 @@ fun MainScreen (viewmodel: MainViewModel){
         }
 
         LazyColumn (modifier = Modifier.fillMaxWidth()){
-            items(state.names){
+            items(state.users){
                 Text(text = it.name)
             }
         }

@@ -13,6 +13,14 @@ class MainViewModel(private val repository: UserRepository) : ViewModel(){
     var state by mutableStateOf(MainState())
         private set
 
+    init {
+        viewModelScope.launch {
+            state = state.copy(
+                users = repository.getUsers()
+            )
+        }
+    }
+
     fun onNameChanged(name: String){
         state = state.copy(
             name = name
